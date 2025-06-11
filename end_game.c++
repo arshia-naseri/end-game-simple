@@ -3,6 +3,9 @@
 int x = 0;
 int y = 0;
 
+int end_x = 3;
+int end_y = 2;
+
 String readSerial(String pretext = ""){
   //To Read from User
   Serial.println(pretext);
@@ -19,6 +22,14 @@ void move(String direction)
   else if(direction == "left")
   {
    	x = x - 1; 
+  }
+  else if(direction == "up")
+  {
+   	y = y + 1; 
+  }
+  else if(direction == "down")
+  {
+    y = y - 1;
   }
     
   
@@ -38,15 +49,20 @@ void setup() //Runs once
   readSerial("type anything to start ...");
   
   
-  // YOUR CODE
-  
-  move("right");
-  delay(1000); // Waits 1000 ms or 1 second
-  
 }
 
 
 void loop() //Runs Forever
 {
+  while(x < end_x)
+  {
+    move("right");
+  }
+  
+  while(y < end_y)
+  {
+   	move("up"); 
+  }
+  
   
 }
